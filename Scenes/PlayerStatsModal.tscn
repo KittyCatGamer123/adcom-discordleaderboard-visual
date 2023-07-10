@@ -1,0 +1,191 @@
+[gd_scene load_steps=13 format=3 uid="uid://bpx4b35o2s2v5"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerStatsModal.gd" id="1_hunae"]
+[ext_resource type="Texture2D" uid="uid://d3ricr6h2wxgt" path="res://Assets/UI/cnt-tint-rounded-small-v1.png" id="2_jbfq4"]
+[ext_resource type="Texture2D" uid="uid://dkgut8lemyvbx" path="res://Assets/UI/cnt-tint-tooltip-bottom.png" id="3_vjyxs"]
+[ext_resource type="Texture2D" uid="uid://0i6uqdyr4us5" path="res://Assets/PlayerIcons/_default.png" id="3_w1fnx"]
+[ext_resource type="FontFile" uid="uid://cq1o5bhchfhll" path="res://Assets/Fonts/GainsboroughSans-Regular.otf" id="4_jf4si"]
+[ext_resource type="Texture2D" uid="uid://bofrunwf6xxoa" path="res://Assets/UI/devbadge.png" id="6_a6n7w"]
+[ext_resource type="Texture2D" uid="uid://c5hjpdgyiaiu8" path="res://Assets/UI/icon-trophy.png" id="7_i5k2h"]
+[ext_resource type="Texture2D" uid="uid://bissjv7v61o31" path="res://Assets/UI/leaderboard.png" id="8_0jooj"]
+[ext_resource type="Texture2D" uid="uid://bcnbjp0hpkche" path="res://Assets/UI/icon-leaderboard-global.png" id="9_ai2c0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qbueg"]
+font = ExtResource("4_jf4si")
+font_size = 51
+outline_size = 17
+outline_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cs7ph"]
+line_spacing = -4.0
+font = ExtResource("4_jf4si")
+font_size = 34
+font_color = Color(0.847059, 0.847059, 0.847059, 1)
+outline_size = 19
+outline_color = Color(0.117647, 0.117647, 0.117647, 1)
+
+[sub_resource type="Theme" id="Theme_wfarl"]
+default_font = ExtResource("4_jf4si")
+RichTextLabel/colors/default_color = Color(0, 1, 0, 1)
+RichTextLabel/colors/font_outline_color = Color(0.129412, 0.298039, 0.129412, 1)
+RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/selection_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_border = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 1)
+RichTextLabel/constants/line_separation = -11
+RichTextLabel/constants/outline_size = 14
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_offset_y = 0
+RichTextLabel/constants/shadow_outline_size = 0
+RichTextLabel/constants/table_h_separation = 0
+RichTextLabel/constants/table_v_separation = 0
+RichTextLabel/constants/text_highlight_h_padding = 0
+RichTextLabel/constants/text_highlight_v_padding = 0
+RichTextLabel/font_sizes/bold_font_size = 16
+RichTextLabel/font_sizes/bold_italics_font_size = 16
+RichTextLabel/font_sizes/italics_font_size = 16
+RichTextLabel/font_sizes/mono_font_size = 16
+RichTextLabel/font_sizes/normal_font_size = 38
+RichTextLabel/fonts/bold_font = ExtResource("4_jf4si")
+RichTextLabel/fonts/bold_italics_font = ExtResource("4_jf4si")
+RichTextLabel/fonts/italics_font = ExtResource("4_jf4si")
+RichTextLabel/fonts/mono_font = ExtResource("4_jf4si")
+RichTextLabel/fonts/normal_font = ExtResource("4_jf4si")
+RichTextLabel/styles/focus = null
+RichTextLabel/styles/normal = null
+
+[node name="PlayerStatsModal" type="Node2D"]
+script = ExtResource("1_hunae")
+
+[node name="ModalMain" type="NinePatchRect" parent="."]
+self_modulate = Color(0.647059, 0.647059, 0.647059, 1)
+offset_left = -349.0
+offset_top = -350.0
+offset_right = 348.0
+offset_bottom = -52.0
+texture = ExtResource("2_jbfq4")
+patch_margin_left = 38
+patch_margin_top = 33
+patch_margin_right = 33
+patch_margin_bottom = 39
+
+[node name="Username" type="Label" parent="ModalMain"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 11.0
+offset_right = 530.0
+offset_bottom = 66.0
+text = "Username goes here!!!"
+label_settings = SubResource("LabelSettings_qbueg")
+
+[node name="PlayerIcon" type="TextureRect" parent="ModalMain"]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 17.0
+offset_right = 678.0
+offset_bottom = 156.0
+texture = ExtResource("3_w1fnx")
+
+[node name="Bottom" type="Sprite2D" parent="ModalMain"]
+self_modulate = Color(0.67451, 0.67451, 0.67451, 1)
+position = Vector2(202, 294.3)
+texture = ExtResource("3_vjyxs")
+
+[node name="DiscordTag" type="Label" parent="ModalMain"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 55.0
+offset_right = 534.0
+offset_bottom = 279.0
+text = "Bananaface#9999"
+label_settings = SubResource("LabelSettings_cs7ph")
+
+[node name="LastUpdate" type="Label" parent="ModalMain"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 246.0
+offset_right = 702.0
+offset_bottom = 281.0
+text = "Last Updated: 2023-05-09 16:12:59"
+label_settings = SubResource("LabelSettings_cs7ph")
+
+[node name="DevBadge" type="TextureRect" parent="ModalMain"]
+visible = false
+layout_mode = 0
+offset_left = 623.0
+offset_top = 160.0
+offset_right = 674.0
+offset_bottom = 211.0
+texture = ExtResource("6_a6n7w")
+expand_mode = 1
+
+[node name="TrophiesIcon" type="TextureRect" parent="ModalMain"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 94.0
+offset_right = 162.0
+offset_bottom = 171.0
+texture = ExtResource("7_i5k2h")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TrophiesCount" type="RichTextLabel" parent="ModalMain"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 148.0
+offset_right = 222.0
+offset_bottom = 233.0
+theme = SubResource("Theme_wfarl")
+bbcode_enabled = true
+text = "[center]
+[font_size=20]Trophies
+[font_size=50]11186"
+scroll_active = false
+
+[node name="DivisionIcon" type="TextureRect" parent="ModalMain"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 79.0
+offset_right = 335.0
+offset_bottom = 184.0
+texture = ExtResource("8_0jooj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DivisionPosition" type="RichTextLabel" parent="ModalMain"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 148.0
+offset_right = 381.0
+offset_bottom = 233.0
+theme = SubResource("Theme_wfarl")
+bbcode_enabled = true
+text = "[center]
+[font_size=20]Division Position
+[font_size=50]1st"
+scroll_active = false
+
+[node name="GlobalIcon" type="TextureRect" parent="ModalMain"]
+layout_mode = 0
+offset_left = 389.0
+offset_top = 76.0
+offset_right = 494.0
+offset_bottom = 181.0
+texture = ExtResource("9_ai2c0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GlobalPosition" type="RichTextLabel" parent="ModalMain"]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 148.0
+offset_right = 540.0
+offset_bottom = 233.0
+theme = SubResource("Theme_wfarl")
+bbcode_enabled = true
+text = "[center]
+[font_size=20]Global Position
+[font_size=50]1st"
+scroll_active = false

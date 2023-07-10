@@ -1,0 +1,578 @@
+[gd_scene load_steps=43 format=3 uid="uid://de4u1yqndiib1"]
+
+[ext_resource type="Texture2D" uid="uid://dxb8y67hpgech" path="res://Assets/UI/tint-bg-metal.png" id="1"]
+[ext_resource type="SpriteFrames" uid="uid://crn85wcfux06a" path="res://Assets/UI/SpinningSta.tres" id="2"]
+[ext_resource type="FontFile" uid="uid://cq1o5bhchfhll" path="res://Assets/Fonts/GainsboroughSans-Regular.otf" id="3"]
+[ext_resource type="Texture2D" uid="uid://ccp6xcggk7nnw" path="res://Assets/Events/space.png" id="4"]
+[ext_resource type="Script" path="res://Scripts/LoadingStar.gd" id="4_kx4lb"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="5"]
+[ext_resource type="Script" path="res://Scenes/positions.gd" id="6_7em0q"]
+[ext_resource type="Texture2D" uid="uid://by8kdrab3k3pf" path="res://Assets/UI/help-unfocused.png" id="7_ycg2l"]
+[ext_resource type="Texture2D" uid="uid://cu3swwqihj0ij" path="res://Assets/UI/help-focused.png" id="8_4sq6e"]
+[ext_resource type="Script" path="res://Scripts/HelpButton.gd" id="9_671v3"]
+[ext_resource type="Texture2D" uid="uid://d0nht3xuur3um" path="res://Assets/UI/icon-leaderboard-global-hover.png" id="9_gkgnb"]
+[ext_resource type="Script" path="res://Scripts/Top100Button.gd" id="10_fnwwd"]
+[ext_resource type="Texture2D" uid="uid://cc4olrxo3f6m4" path="res://Assets/UI/btn-bubble-pointer.png" id="11_2hrxa"]
+[ext_resource type="FontFile" uid="uid://bwkkubu0oyu3a" path="res://Assets/Fonts/Mairy Regular.otf" id="11_7qbv2"]
+[ext_resource type="Texture2D" uid="uid://bissjv7v61o31" path="res://Assets/UI/leaderboard.png" id="11_xwqvw"]
+[ext_resource type="Texture2D" uid="uid://cj37cnj4f1bv" path="res://Assets/UI/leaderboard-hover.png" id="12_4r4og"]
+[ext_resource type="Texture2D" uid="uid://ck2k4b7erej7s" path="res://Assets/UI/btn-bubble.png" id="12_rhgd8"]
+[ext_resource type="Script" path="res://Scripts/DisboardButton.gd" id="13_wxxg3"]
+[ext_resource type="Script" path="res://Scripts/NewsModalContainer.gd" id="14_n2nd8"]
+[ext_resource type="Texture2D" uid="uid://d0wpkhiv4po2p" path="res://Assets/UI/tint-cnt-modal-wood.png" id="14_vmkil"]
+[ext_resource type="Texture2D" uid="uid://x6pjevguv2gw" path="res://Assets/UI/cnt-metal-rounded.png" id="15_lv8m2"]
+[ext_resource type="Texture2D" uid="uid://bhba6h84y7hfh" path="res://Assets/UI/tint-cnt-modal-top.png" id="16_klmwu"]
+[ext_resource type="Texture2D" uid="uid://dsujd3op15cjo" path="res://Assets/UI/tint-cnt-bolted-bar.png" id="17_j1pf5"]
+[ext_resource type="Texture2D" uid="uid://caw7fw5wc2ung" path="res://Assets/UI/icon-close.png" id="18_7ml5o"]
+[ext_resource type="Texture2D" uid="uid://5tj3qaar28s1" path="res://Assets/UI/button-arrow.png" id="19_5rv3x"]
+[ext_resource type="Texture2D" uid="uid://du0ppsjwhrpg6" path="res://Assets/UI/button-arrow-disabled.png" id="20_cy355"]
+[ext_resource type="Texture2D" uid="uid://bcnbjp0hpkche" path="res://Assets/UI/icon-leaderboard-global.png" id="22_sgfky"]
+
+[sub_resource type="Theme" id="Theme_57vsn"]
+default_font = ExtResource("3")
+default_font_size = 65
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/selection_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_border = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 1)
+RichTextLabel/constants/line_separation = 0
+RichTextLabel/constants/outline_size = 25
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_offset_y = 0
+RichTextLabel/constants/shadow_outline_size = 0
+RichTextLabel/constants/table_h_separation = 0
+RichTextLabel/constants/table_v_separation = 0
+RichTextLabel/constants/text_highlight_h_padding = 0
+RichTextLabel/constants/text_highlight_v_padding = 0
+RichTextLabel/font_sizes/bold_font_size = 65
+RichTextLabel/font_sizes/bold_italics_font_size = 65
+RichTextLabel/font_sizes/italics_font_size = 65
+RichTextLabel/font_sizes/mono_font_size = 65
+RichTextLabel/font_sizes/normal_font_size = 65
+RichTextLabel/fonts/bold_font = ExtResource("3")
+RichTextLabel/fonts/bold_italics_font = ExtResource("3")
+RichTextLabel/fonts/italics_font = ExtResource("3")
+RichTextLabel/fonts/mono_font = ExtResource("3")
+RichTextLabel/fonts/normal_font = ExtResource("3")
+RichTextLabel/styles/focus = null
+RichTextLabel/styles/normal = null
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0djvr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kmy4c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hgmeq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d3kmr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6pwx"]
+
+[sub_resource type="Theme" id="Theme_wa6un"]
+default_font = ExtResource("3")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.172549, 0.172549, 0.172549, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 0, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.788235, 0.788235, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/h_separation = 0
+Button/constants/outline_size = 21
+Button/font_sizes/font_size = 64
+Button/fonts/font = ExtResource("3")
+Button/styles/disabled = SubResource("StyleBoxEmpty_0djvr")
+Button/styles/focus = SubResource("StyleBoxEmpty_kmy4c")
+Button/styles/hover = SubResource("StyleBoxEmpty_hgmeq")
+Button/styles/normal = SubResource("StyleBoxEmpty_d3kmr")
+Button/styles/pressed = SubResource("StyleBoxEmpty_m6pwx")
+
+[sub_resource type="LabelSettings" id="LabelSettings_o4le1"]
+font = ExtResource("3")
+font_size = 40
+font_color = Color(1, 0.756863, 0.0784314, 1)
+outline_size = 15
+outline_color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_edhv4"]
+line_spacing = 2.8
+font = ExtResource("3")
+font_size = 63
+outline_size = 27
+outline_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+
+[sub_resource type="Theme" id="Theme_t20tp"]
+default_font = ExtResource("11_7qbv2")
+default_font_size = 20
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/selection_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_border = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 1)
+RichTextLabel/constants/line_separation = 0
+RichTextLabel/constants/outline_size = 11
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_offset_y = 0
+RichTextLabel/constants/shadow_outline_size = 0
+RichTextLabel/constants/table_h_separation = 0
+RichTextLabel/constants/table_v_separation = 0
+RichTextLabel/constants/text_highlight_h_padding = 0
+RichTextLabel/constants/text_highlight_v_padding = 0
+RichTextLabel/font_sizes/bold_font_size = 20
+RichTextLabel/font_sizes/bold_italics_font_size = 20
+RichTextLabel/font_sizes/italics_font_size = 20
+RichTextLabel/font_sizes/mono_font_size = 20
+RichTextLabel/font_sizes/normal_font_size = 43
+RichTextLabel/fonts/bold_font = ExtResource("11_7qbv2")
+RichTextLabel/fonts/bold_italics_font = ExtResource("11_7qbv2")
+RichTextLabel/fonts/italics_font = ExtResource("11_7qbv2")
+RichTextLabel/fonts/mono_font = ExtResource("11_7qbv2")
+RichTextLabel/fonts/normal_font = ExtResource("11_7qbv2")
+RichTextLabel/styles/focus = null
+RichTextLabel/styles/normal = null
+
+[sub_resource type="Theme" id="Theme_uwkkd"]
+default_font = ExtResource("11_7qbv2")
+default_font_size = 35
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/selection_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_border = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 1)
+RichTextLabel/constants/line_separation = 0
+RichTextLabel/constants/outline_size = 0
+RichTextLabel/constants/shadow_offset_x = 3
+RichTextLabel/constants/shadow_offset_y = 3
+RichTextLabel/constants/shadow_outline_size = 6
+RichTextLabel/constants/table_h_separation = 0
+RichTextLabel/constants/table_v_separation = 0
+RichTextLabel/constants/text_highlight_h_padding = 0
+RichTextLabel/constants/text_highlight_v_padding = 0
+RichTextLabel/font_sizes/bold_font_size = 35
+RichTextLabel/font_sizes/bold_italics_font_size = 35
+RichTextLabel/font_sizes/italics_font_size = 35
+RichTextLabel/font_sizes/mono_font_size = 35
+RichTextLabel/font_sizes/normal_font_size = 35
+RichTextLabel/fonts/bold_font = ExtResource("11_7qbv2")
+RichTextLabel/fonts/bold_italics_font = ExtResource("11_7qbv2")
+RichTextLabel/fonts/italics_font = ExtResource("11_7qbv2")
+RichTextLabel/fonts/mono_font = ExtResource("11_7qbv2")
+RichTextLabel/fonts/normal_font = ExtResource("11_7qbv2")
+RichTextLabel/styles/focus = null
+RichTextLabel/styles/normal = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_cxe3u"]
+font = ExtResource("3")
+font_size = 68
+outline_size = 25
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lrf0x"]
+font = ExtResource("3")
+font_size = 66
+font_color = Color(0.576471, 0.576471, 0.576471, 1)
+outline_size = 20
+outline_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="Theme" id="Theme_twj7c"]
+default_font = ExtResource("3")
+Button/colors/font_color = Color(0.376471, 0.376471, 0.376471, 1)
+Button/colors/font_disabled_color = Color(0.172549, 0.172549, 0.172549, 1)
+Button/colors/font_focus_color = Color(0.376471, 0.376471, 0.376471, 1)
+Button/colors/font_hover_color = Color(1, 1, 0, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+Button/colors/font_outline_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+Button/colors/font_pressed_color = Color(0.788235, 0.788235, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/h_separation = 0
+Button/constants/outline_size = 21
+Button/font_sizes/font_size = 31
+Button/fonts/font = ExtResource("3")
+Button/styles/disabled = SubResource("StyleBoxEmpty_0djvr")
+Button/styles/focus = SubResource("StyleBoxEmpty_kmy4c")
+Button/styles/hover = SubResource("StyleBoxEmpty_hgmeq")
+Button/styles/normal = SubResource("StyleBoxEmpty_d3kmr")
+Button/styles/pressed = SubResource("StyleBoxEmpty_m6pwx")
+
+[sub_resource type="Theme" id="Theme_prmvi"]
+default_font = ExtResource("11_7qbv2")
+default_font_size = 28
+
+[node name="Main" type="Node2D"]
+script = ExtResource("5")
+
+[node name="background" type="TextureRect" parent="."]
+offset_right = 810.0
+offset_bottom = 1800.0
+texture = ExtResource("1")
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="LoadingStar" type="AnimatedSprite2D" parent="background"]
+position = Vector2(380, 1086)
+scale = Vector2(0.7, 0.7)
+sprite_frames = ExtResource("2")
+frame_progress = 0.9602
+speed_scale = 6.0
+script = ExtResource("4_kx4lb")
+
+[node name="LoadingData" type="RichTextLabel" parent="background"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 1140.0
+offset_right = 738.0
+offset_bottom = 1240.0
+theme = SubResource("Theme_57vsn")
+bbcode_enabled = true
+text = "[indent][center]Loading Data..."
+scroll_active = false
+
+[node name="positions" type="Marker2D" parent="."]
+script = ExtResource("6_7em0q")
+
+[node name="overlay" type="Sprite2D" parent="."]
+position = Vector2(405, 900)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4")
+metadata/_edit_lock_ = true
+
+[node name="ToggleNewsModal" type="Button" parent="overlay"]
+offset_left = -245.333
+offset_top = 874.667
+offset_right = -90.3333
+offset_bottom = 981.667
+theme = SubResource("Theme_wa6un")
+text = "News"
+
+[node name="ConnectButton" type="Button" parent="overlay"]
+offset_left = 178.667
+offset_top = 874.667
+offset_right = 364.667
+offset_bottom = 981.667
+theme = SubResource("Theme_wa6un")
+text = "Connect"
+
+[node name="Top100Button" type="TextureButton" parent="overlay"]
+offset_left = 326.333
+offset_top = -266.333
+offset_right = 452.333
+offset_bottom = -157.333
+texture_normal = ExtResource("22_sgfky")
+texture_pressed = ExtResource("9_gkgnb")
+texture_hover = ExtResource("9_gkgnb")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("10_fnwwd")
+
+[node name="Describe" type="ColorRect" parent="overlay/Top100Button"]
+layout_mode = 0
+offset_left = -61.0
+offset_top = 80.3333
+offset_right = 190.0
+offset_bottom = 126.333
+color = Color(0, 0, 0, 0.705882)
+
+[node name="Label" type="Label" parent="overlay/Top100Button/Describe"]
+layout_mode = 0
+offset_right = 251.0
+offset_bottom = 46.0
+text = "View Top 100"
+label_settings = SubResource("LabelSettings_o4le1")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="ModeDisplay" type="Label" parent="overlay"]
+offset_left = -93.0
+offset_top = -247.667
+offset_right = 223.0
+offset_bottom = -177.667
+text = "Discordboard"
+label_settings = SubResource("LabelSettings_edhv4")
+vertical_alignment = 1
+
+[node name="DisboardButton" type="TextureButton" parent="overlay"]
+offset_left = -227.0
+offset_top = -252.0
+offset_right = -115.0
+offset_bottom = -171.0
+texture_normal = ExtResource("11_xwqvw")
+texture_pressed = ExtResource("12_4r4og")
+texture_hover = ExtResource("12_4r4og")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_wxxg3")
+
+[node name="Describe" type="ColorRect" parent="overlay/DisboardButton"]
+layout_mode = 0
+offset_left = -54.0
+offset_top = 67.0
+offset_right = 486.0
+offset_bottom = 113.0
+color = Color(0, 0, 0, 0.705882)
+
+[node name="Label" type="Label" parent="overlay/DisboardButton/Describe"]
+layout_mode = 0
+offset_right = 342.0
+offset_bottom = 48.0
+text = "View Discordboard"
+label_settings = SubResource("LabelSettings_o4le1")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="popupPosition" type="Marker2D" parent="."]
+position = Vector2(0, -3)
+
+[node name="httpGetPlayfab" type="HTTPRequest" parent="."]
+
+[node name="httpGetEvent" type="HTTPRequest" parent="."]
+
+[node name="httpGetTop100" type="HTTPRequest" parent="."]
+
+[node name="HelpButton" type="TextureButton" parent="."]
+offset_left = 650.0
+offset_top = 3.0
+offset_right = 806.0
+offset_bottom = 65.0
+toggle_mode = true
+texture_normal = ExtResource("7_ycg2l")
+texture_hover = ExtResource("8_4sq6e")
+script = ExtResource("9_671v3")
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasGroup" type="CanvasGroup" parent="HelpButton"]
+visible = false
+position = Vector2(-650, -3)
+
+[node name="Sprite2D" type="Sprite2D" parent="HelpButton/CanvasGroup"]
+position = Vector2(719, 81)
+rotation = -3.14159
+scale = Vector2(1.75, 1.91497)
+texture = ExtResource("11_2hrxa")
+
+[node name="TextBubble" type="NinePatchRect" parent="HelpButton/CanvasGroup"]
+anchors_preset = -1
+anchor_bottom = 0.645
+offset_left = 35.0
+offset_top = 88.0
+offset_right = 792.0
+offset_bottom = 952.0
+texture = ExtResource("12_rhgd8")
+patch_margin_left = 14
+patch_margin_top = 14
+patch_margin_right = 17
+patch_margin_bottom = 18
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HelpButton/CanvasGroup/TextBubble"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 9.0
+offset_right = 752.0
+offset_bottom = 837.0
+theme = SubResource("Theme_t20tp")
+bbcode_enabled = true
+text = "Use the [color=Lightgreen]mouse wheel[/color] to scroll up and down the leaderboard.
+
+This leaderboard gets all its data from [color=Lightgreen]Enigma's web leaderboard.[/color] Each player's leaderboard position is updated when you [color=Lightskyblue]open a capsule[/color] that contains [color=yellow]trophies[/color].
+
+Please be paitent when loading data, getting data from servers takes time! However if it takes more than 5 minutes to load the leaderboard, make sure your [color=Lightskyblue]WiFi Connection[/color] is strong. If in doubt, feel free to use the contacts at the bottom.
+
+Occasionally, players on the leaderboard can load but the event theme will not. This most likely would be because the event is [color=yellow]new[/color] and I haven't gotten the image for it yet.
+
+Issues and suggestions are welcome!
+
+Support Contact:
+[color=plum]Catster#1000[/color] for visual board issues.
+[color=Lightgreen]Enigma#2989[/color] for server issues.
+
+Credit:
+[color=plum]Catster[/color] - Visual board developer.
+[color=Lightgreen]Enigma[/color] - Web leaderboard / API developer.
+[color=Mediumslateblue]Hyper Hippo[/color] - Leaderboard data and assets."
+visible_characters_behavior = 1
+language = "en_IE"
+
+[node name="NewsModalContainer" type="ColorRect" parent="."]
+visible = false
+offset_right = 810.0
+offset_bottom = 1799.0
+color = Color(0, 0, 0, 0.784314)
+script = ExtResource("14_n2nd8")
+metadata/_edit_lock_ = true
+
+[node name="WoodPanel" type="TextureRect" parent="NewsModalContainer"]
+self_modulate = Color(1, 0.545098, 0.203922, 1)
+layout_mode = 0
+offset_left = 20.0
+offset_right = 789.0
+offset_bottom = 1800.0
+texture = ExtResource("14_vmkil")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ContentPanel" type="TextureRect" parent="NewsModalContainer/WoodPanel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 640.0
+offset_right = 765.0
+offset_bottom = 1228.0
+texture = ExtResource("15_lv8m2")
+
+[node name="VersionContent" type="RichTextLabel" parent="NewsModalContainer/WoodPanel/ContentPanel"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 54.0
+offset_right = 732.0
+offset_bottom = 443.0
+theme = SubResource("Theme_uwkkd")
+bbcode_enabled = true
+text = "[font_size=45][b]Version[/b] v1.0.0[/font_size]
+[ul] Initial release of the visual leaderboard!
+[/ul]"
+
+[node name="Header" type="NinePatchRect" parent="NewsModalContainer/WoodPanel"]
+self_modulate = Color(0.839216, 0.839216, 0.839216, 1)
+layout_mode = 0
+offset_top = 542.0
+offset_right = 770.0
+offset_bottom = 691.0
+texture = ExtResource("16_klmwu")
+region_rect = Rect2(-1.5, -2.5, 262, 129)
+patch_margin_left = 36
+patch_margin_right = 141
+
+[node name="Title" type="Label" parent="NewsModalContainer/WoodPanel/Header"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 24.0
+offset_right = 737.0
+offset_bottom = 123.0
+text = "Update News"
+label_settings = SubResource("LabelSettings_cxe3u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BoltedBar" type="NinePatchRect" parent="NewsModalContainer/WoodPanel"]
+self_modulate = Color(0.839216, 0.839216, 0.839216, 1)
+layout_mode = 0
+offset_top = 1092.0
+offset_right = 770.0
+offset_bottom = 1262.0
+texture = ExtResource("17_j1pf5")
+patch_margin_left = 93
+patch_margin_top = 53
+patch_margin_right = 87
+patch_margin_bottom = 62
+
+[node name="VersionNo" type="Label" parent="NewsModalContainer/WoodPanel/BoltedBar"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 26.0
+offset_right = 753.0
+offset_bottom = 142.0
+text = "14.23.1"
+label_settings = SubResource("LabelSettings_lrf0x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectOlder" type="TextureButton" parent="NewsModalContainer/WoodPanel/BoltedBar"]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 25.0
+offset_right = 524.0
+offset_bottom = 134.0
+texture_normal = ExtResource("19_5rv3x")
+texture_disabled = ExtResource("20_cy355")
+stretch_mode = 5
+
+[node name="SelectNewer" type="TextureButton" parent="NewsModalContainer/WoodPanel/BoltedBar"]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 25.0
+offset_right = 296.0
+offset_bottom = 134.0
+texture_normal = ExtResource("19_5rv3x")
+texture_disabled = ExtResource("20_cy355")
+stretch_mode = 5
+flip_h = true
+
+[node name="CloseModel" type="TextureButton" parent="NewsModalContainer/WoodPanel"]
+layout_mode = 0
+offset_left = 695.0
+offset_top = 539.0
+offset_right = 751.0
+offset_bottom = 590.0
+texture_normal = ExtResource("18_7ml5o")
+stretch_mode = 5
+
+[node name="EnigmaCredit" type="Button" parent="."]
+offset_left = 640.0
+offset_top = 1752.0
+offset_right = 801.0
+offset_bottom = 1796.0
+theme = SubResource("Theme_twj7c")
+text = "API by enigma"
+
+[node name="FormLink" type="Button" parent="."]
+offset_left = 11.0
+offset_top = 1745.0
+offset_right = 205.0
+offset_bottom = 1802.0
+theme = SubResource("Theme_twj7c")
+text = "Join leaderboard"
+
+[node name="OpenSource" type="Button" parent="."]
+offset_left = 323.0
+offset_top = 1745.0
+offset_right = 516.0
+offset_bottom = 1802.0
+theme = SubResource("Theme_twj7c")
+text = "View source code"
+
+[node name="SpecialNotice" type="RichTextLabel" parent="."]
+offset_left = 13.0
+offset_top = 1667.0
+offset_right = 792.0
+offset_bottom = 1755.0
+theme = SubResource("Theme_prmvi")
+bbcode_enabled = true
+scroll_active = false
+
+[connection signal="pressed" from="overlay/ToggleNewsModal" to="NewsModalContainer" method="_on_toggle_news_modal_pressed"]
+[connection signal="mouse_entered" from="overlay/Top100Button" to="overlay/Top100Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="overlay/Top100Button" to="overlay/Top100Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="overlay/Top100Button" to="." method="_on_top_100_button_pressed"]
+[connection signal="mouse_entered" from="overlay/DisboardButton" to="overlay/DisboardButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="overlay/DisboardButton" to="overlay/DisboardButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="overlay/DisboardButton" to="." method="_on_disboard_button_pressed"]
+[connection signal="request_completed" from="httpGetPlayfab" to="." method="_on_httpGetPlayfab_request_completed"]
+[connection signal="request_completed" from="httpGetEvent" to="." method="_on_httpGetEvent_request_completed"]
+[connection signal="request_completed" from="httpGetTop100" to="." method="_on_http_get_top_100_request_completed"]
+[connection signal="toggled" from="HelpButton" to="HelpButton" method="_on_toggled"]
+[connection signal="pressed" from="NewsModalContainer/WoodPanel/BoltedBar/SelectOlder" to="NewsModalContainer" method="_on_select_older_pressed"]
+[connection signal="pressed" from="NewsModalContainer/WoodPanel/BoltedBar/SelectNewer" to="NewsModalContainer" method="_on_select_newer_pressed"]
+[connection signal="pressed" from="NewsModalContainer/WoodPanel/CloseModel" to="NewsModalContainer" method="_on_close_model_pressed"]
+[connection signal="pressed" from="EnigmaCredit" to="." method="_on_enigma_credit_pressed"]
+[connection signal="pressed" from="FormLink" to="." method="_on_form_link_pressed"]
+[connection signal="pressed" from="OpenSource" to="." method="_on_open_source_pressed"]
