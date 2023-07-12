@@ -2,6 +2,14 @@ extends Node2D
 
 @onready var PositionsList: Marker2D = get_node("positions")
 @onready var MaxScroll = 0
+var backupPlayfabPool = [
+	"1A8E38C3AA38A635",
+	"E1E1B9F3C494F075",
+	"9C5D3DB5B7C26E65",
+	"CE28EC0D8F47E956",
+	"A877F6523108F4F8"
+]
+
 var activePlayfab = "2009767D308F4315"
 var activeRequest = false
 var latestEventId = null
@@ -49,9 +57,13 @@ func _on_disboard_button_pressed():
 
 func _on_top_100_button_pressed():
 	if not activeRequest:
+		# If I don't start an event, the T100 won't load
+		# So I need to pick an ID that is always playing every single event.
+		var playfab = backupPlayfabPool[randi() % backupPlayfabPool.size()]
+		
 		$overlay/ModeDisplay.text = "Top 100"
 		$httpGetTop100.connect("request_completed", Callable(self, "_on_http_get_top_100_request_completed"))
-		$httpGetTop100.request("https://darrenskidmore.com/adcom-leaderboard/api/event/{id}/2009767D308F4315/top/100".replace("{id}", latestEventId))
+		$httpGetTop100.request("https://darrenskidmore.com/adcom-leaderboard/api/event/{id}/{playfab}/top/100".replace("{id}", latestEventId).replace("{playfab}", playfab))
 		activeRequest = true
 		for i in $positions.get_children(): i.queue_free()
 
