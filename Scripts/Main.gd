@@ -12,7 +12,12 @@ var backupPlayfabPool = [
 
 var activePlayfab = "2009767D308F4315"
 var activeRequest = false
-var latestEventId = null
+var activeEventId = null
+
+var eventFocus = null
+var eventFocusName = null
+var eventFocusSDate = null
+var eventFocusEDate = null
 
 # :ech:
 # Unix times in Irish Time
@@ -23,6 +28,7 @@ func _ready():
 	get_node("overlay").visible = false
 	$httpGetPlayfab.connect("request_completed",Callable(self,"_on_httpGetPlayfab_request_completed"))
 	$httpGetPlayfab.request("https://darrenskidmore.com/adcom-leaderboard/api/list/" + activePlayfab)
+	$overlay/EventTimestamp.visible = false
 	activeRequest = true
 
 func _on_httpGetPlayfab_request_completed(_result, _response_code, _headers, body):
@@ -31,29 +37,44 @@ func _on_httpGetPlayfab_request_completed(_result, _response_code, _headers, bod
 	test_json_conv.parse(body.get_string_from_utf8())
 	var json = test_json_conv.get_data()
 	if json != null:
-		latestEventId = json[0].eventId
-		if load("res://Assets/Events/" + json[0].eventName + ".png") == null:
-			$overlay/ToggleNewsModal.position = Vector2(-541, -1200)
-			$overlay/Top100Button.position = Vector2(144, -1197)
-			$overlay/ConnectButton.visible = false
-		get_node("overlay").texture = load("res://Assets/Events/" + json[0].eventName + ".png")
-		get_node("overlay").visible = true
-		$httpGetEvent.connect("request_completed",Callable(self,"_on_httpGetEvent_request_completed"))
-		$httpGetEvent.request("https://darrenskidmore.com/adcom-leaderboard/api/discord/" + latestEventId)
-		activeRequest = true
-		initaliseSpecialNotifications(latestEventId)
-		$overlay/ModeDisplay.text = "Discordboard"
+		activeEventId = json[0].eventId
+		load_disboard(json[0].eventId, json[0].eventName, json[0].startDate, json[0].endDate)
 	else:
 		$background/LoadingData.text = "[indent][center]Error retrieving data!"
 
+func load_disboard(eventId, eventName, startDate, endDate):
+	eventFocus = eventId
+	eventFocusName = eventName
+	eventFocusSDate = startDate
+	eventFocusEDate = endDate
+	for i in $positions.get_children(): i.queue_free()
+	
+	if load("res://Assets/Events/" + eventName + ".png") == null:
+		$overlay/ToggleNewsModal.position = Vector2(-541, -1200)
+		$overlay/Top100Button.position = Vector2(144, -1197)
+		$overlay/ConnectButton.visible = false
+	else:
+		$overlay/ToggleNewsModal.position = Vector2(-245.333, 874.667)
+		$overlay/Top100Button.position = Vector2(326.333, -266.333)
+		$overlay/ConnectButton.visible = true
+	
+	if eventId == activeEventId: $overlay/EventTimestamp.visible = false
+	else:
+		$overlay/EventTimestamp.text = startDate + " to " + endDate
+		$overlay/EventTimestamp.visible = true
+	
+	get_node("overlay").texture = load("res://Assets/Events/" + eventName + ".png")
+	get_node("overlay").visible = true
+	$httpGetEvent.connect("request_completed",Callable(self,"_on_httpGetEvent_request_completed"))
+	$httpGetEvent.request("https://darrenskidmore.com/adcom-leaderboard/api/discord/" + eventId)
+	activeRequest = true
+	MaxScroll = 0
+	initaliseSpecialNotifications(eventId)
+	$overlay/ModeDisplay.text = "Discordboard"
+
 func _on_disboard_button_pressed():
 	if not activeRequest:
-		$overlay/ModeDisplay.text = "Discordboard"
-		$httpGetPlayfab.connect("request_completed",Callable(self,"_on_httpGetPlayfab_request_completed"))
-		$httpGetPlayfab.request("https://darrenskidmore.com/adcom-leaderboard/api/list/2009767D308F4315")
-		MaxScroll = 0
-		activeRequest = true
-		for i in $positions.get_children(): i.queue_free()
+		load_disboard(eventFocus, eventFocusName, eventFocusSDate, eventFocusEDate)
 
 func _on_top_100_button_pressed():
 	if not activeRequest:
@@ -63,7 +84,7 @@ func _on_top_100_button_pressed():
 		
 		$overlay/ModeDisplay.text = "Top 100"
 		$httpGetTop100.connect("request_completed", Callable(self, "_on_http_get_top_100_request_completed"))
-		$httpGetTop100.request("https://darrenskidmore.com/adcom-leaderboard/api/event/{id}/{playfab}/top/100".replace("{id}", latestEventId).replace("{playfab}", playfab))
+		$httpGetTop100.request("https://darrenskidmore.com/adcom-leaderboard/api/event/{id}/{playfab}/top/100".replace("{id}", eventFocus).replace("{playfab}", playfab))
 		activeRequest = true
 		for i in $positions.get_children(): i.queue_free()
 
@@ -222,6 +243,70 @@ func get_ingame_username_icon(n):
 	var ic = odict["IconColors"][int((n * incrementValue[3]) + baseCaseIndex[3]) % odict["IconColors"].size()]
 	var ip = odict["IconTextures"][int((n * incrementValue[4]) + baseCaseIndex[4]) % odict["IconTextures"].size()]
 	return [ n0 + " " + n1 + " " + n2, ic, ip ]
+
+func _on_history_button_pressed():
+	if not activeRequest:
+		$overlay/ModeDisplay.text = "History"
+		$httpGetHistory.connect("request_completed", Callable(self, "_on_http_get_history_request_completed"))
+		$httpGetHistory.request("https://darrenskidmore.com/adcom-leaderboard/api/list")
+		activeRequest = true
+		MaxScroll = 0
+		for i in $positions.get_children(): i.queue_free()
+
+func _on_http_get_history_request_completed(result, response_code, headers, body):
+	activeRequest = false
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(body.get_string_from_utf8())
+	
+	var eventNode = load("res://Scenes/PastEvent.tscn")
+	var eventsList = test_json_conv.get_data()
+	var y = (1201 * 0.75) + 39
+	
+	var eventNameOverrides = {
+		"atlantis": "Anew Atlantis",
+		"attack": "Quest for Oil",
+		"bamboo": "Communist Vacation",
+		"cockatrice": "Cockatrices",
+		"cowboy": "Comrade Cowboys",
+		"crusade": "Communist Crusade",
+		"defense": "Shields Up",
+		"export": "Potato Export",
+		"fusfarm": "Farm to Table",
+		"fuspet": "Grand Pet Show",
+		"fusscience": "State Science",
+		"fusvehicle": "Vehicle Show",
+		"ninja": "Ninja Union",
+		"potatofactory": "Potato Factory",
+		"power": "Power Underwhelming",
+		"space": "Space Force",
+		"stone": "Stone State",
+		"winter": "Winter Motherland",
+		"zombie": "Zombie Revolution"
+	}
+	
+	for e in eventsList:
+		var newPosition = eventNode.instantiate()
+		PositionsList.add_child(newPosition)
+		newPosition.position = Vector2(409, y)
+		
+		var name = eventNameOverrides[e["eventName"]] if e["eventName"] in eventNameOverrides else e['eventName']
+		var start = e['startDate'].split("T")[0]
+		var end = e['endDate'].split("T")[0]
+		
+		newPosition.get_node("Box/Icon").texture = load("res://Assets/EventIcons/" + e['eventName'] + ".png")
+		newPosition.get_node("Box/Name").text = name
+		newPosition.get_node("Box/Dates").text = start + " to " + end
+		newPosition.get_node("Box/ViewEvent").visible = e["eventStatus"] != "archived"
+		
+		newPosition.EVENT_NAME = e['eventName']
+		newPosition.EVENT_ID = e['eventId']
+		newPosition.START_DATE = start
+		newPosition.END_DATE = end
+		
+		y += (171 * 0.75)
+		MaxScroll -= (171 * 0.75)
+	
+	$positions.position.y = 0
 
 func _on_enigma_credit_pressed():
 	OS.shell_open("https://darrenskidmore.com/adcom-leaderboard/discord")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://cmt68c0jt57g1"]
+[gd_scene load_steps=15 format=3 uid="uid://btypxwc8keb3p"]
 
 [ext_resource type="Texture2D" uid="uid://y2x46hl32fb" path="res://Assets/UI/position.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://cvw42ur016tu6" path="res://Assets/UI/PositionColours/position_other.png" id="2"]
 [ext_resource type="FontFile" uid="uid://cq1o5bhchfhll" path="res://Assets/Fonts/GainsboroughSans-Regular.otf" id="3"]
 [ext_resource type="Texture2D" uid="uid://0i6uqdyr4us5" path="res://Assets/PlayerIcons/_default.png" id="4"]
 [ext_resource type="Script" path="res://Scripts/Position.gd" id="5"]
+[ext_resource type="Theme" uid="uid://d1xox3xni51e2" path="res://Scenes/ClickableText.tres" id="6_m288r"]
 
 [sub_resource type="Theme" id="Theme_84kp8"]
 default_font = ExtResource("3")
@@ -44,7 +45,7 @@ font_size = 64
 outline_size = 25
 outline_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
 
-[sub_resource type="FontFile" id="3"]
+[sub_resource type="FontFile" id="FontFile_gh06r"]
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
@@ -1380,7 +1381,7 @@ cache/0/49/0/kerning_overrides/48/0 = Vector2(0, 0)
 cache/0/49/0/kerning_overrides/49/0 = Vector2(0, 0)
 
 [sub_resource type="Theme" id="4"]
-default_font = SubResource("3")
+default_font = SubResource("FontFile_gh06r")
 
 [sub_resource type="LabelSettings" id="LabelSettings_etkox"]
 font = ExtResource("3")
@@ -1435,41 +1436,6 @@ outline_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
 shadow_size = 30
 shadow_color = Color(0, 0, 0, 0.270588)
 shadow_offset = Vector2(1, 3)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0djvr"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kmy4c"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hgmeq"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d3kmr"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6pwx"]
-
-[sub_resource type="Theme" id="Theme_mt5b3"]
-default_font = ExtResource("3")
-Button/colors/font_color = Color(1, 1, 1, 1)
-Button/colors/font_disabled_color = Color(0.172549, 0.172549, 0.172549, 1)
-Button/colors/font_focus_color = Color(1, 1, 1, 1)
-Button/colors/font_hover_color = Color(1, 1, 0, 1)
-Button/colors/font_hover_pressed_color = Color(1, 1, 0, 1)
-Button/colors/font_outline_color = Color(0, 0, 0, 1)
-Button/colors/font_pressed_color = Color(0.788235, 0.788235, 0, 1)
-Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
-Button/colors/icon_focus_color = Color(0, 0, 0, 1)
-Button/colors/icon_hover_color = Color(0, 0, 0, 1)
-Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
-Button/colors/icon_normal_color = Color(0, 0, 0, 1)
-Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
-Button/constants/h_separation = 0
-Button/constants/outline_size = 25
-Button/font_sizes/font_size = 64
-Button/fonts/font = ExtResource("3")
-Button/styles/disabled = SubResource("StyleBoxEmpty_0djvr")
-Button/styles/focus = SubResource("StyleBoxEmpty_kmy4c")
-Button/styles/hover = SubResource("StyleBoxEmpty_hgmeq")
-Button/styles/normal = SubResource("StyleBoxEmpty_d3kmr")
-Button/styles/pressed = SubResource("StyleBoxEmpty_m6pwx")
 
 [node name="Position" type="Node2D"]
 script = ExtResource("5")
@@ -1550,7 +1516,7 @@ offset_left = -229.0
 offset_top = -74.3334
 offset_right = 328.0
 offset_bottom = -2.33336
-theme = SubResource("Theme_mt5b3")
+theme = ExtResource("6_m288r")
 text = "Username Goes Here"
 alignment = 0
 clip_text = true

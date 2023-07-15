@@ -2,6 +2,13 @@ extends ColorRect
 
 const UPDATE_HISTORY = [
 	{
+		"Version": "1.5.0",
+		"Contents": [
+			"You can now see the [color=lime]event history[/color] to see past records by pressing the diamond icon!",
+			"In addition, there is a date stamp if you are not viewing the current active event!"
+		]
+	},
+	{
 		"Version": "1.4.0",
 		"Contents": [
 			"You can return back to the Discordboard after loading the Top 100 now by pressing the Leaderboard icon.",

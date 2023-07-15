@@ -1,0 +1,143 @@
+[gd_scene load_steps=15 format=3 uid="uid://ca301ch6dupbm"]
+
+[ext_resource type="Script" path="res://Scripts/PastEvent.gd" id="1_b1a5d"]
+[ext_resource type="Texture2D" uid="uid://tsv4b5a5y48g" path="res://Assets/EventIcons/atlantis.png" id="2_86n8w"]
+[ext_resource type="FontFile" uid="uid://cq1o5bhchfhll" path="res://Assets/Fonts/GainsboroughSans-Regular.otf" id="3_atpvn"]
+[ext_resource type="Texture2D" uid="uid://7omsw5oakgjh" path="res://Assets/UI/cnt-tint-flat-square-extra-small-noshadow.png" id="3_l0p3o"]
+[ext_resource type="Texture2D" uid="uid://wex4bjb0neqh" path="res://Assets/UI/viewbtn.png" id="4_wy8ml"]
+[ext_resource type="Texture2D" uid="uid://cb4wnx8s34g6u" path="res://Assets/UI/viewbtn-pressed.png" id="5_ib5oi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xx22v"]
+font = ExtResource("3_atpvn")
+font_size = 54
+outline_size = 18
+outline_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_08fc2"]
+font = ExtResource("3_atpvn")
+font_size = 35
+font_color = Color(0.6, 0.6, 0.6, 1)
+outline_size = 17
+outline_color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dfn7g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wuiob"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xjev8"]
+texture = ExtResource("4_wy8ml")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vfup7"]
+texture = ExtResource("5_ib5oi")
+
+[sub_resource type="Theme" id="Theme_7r5k5"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/h_separation = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = null
+Button/styles/disabled = SubResource("StyleBoxEmpty_dfn7g")
+Button/styles/focus = SubResource("StyleBoxEmpty_wuiob")
+Button/styles/hover = SubResource("StyleBoxTexture_xjev8")
+Button/styles/normal = SubResource("StyleBoxTexture_xjev8")
+Button/styles/pressed = SubResource("StyleBoxTexture_vfup7")
+
+[sub_resource type="LabelSettings" id="LabelSettings_imlkv"]
+font = ExtResource("3_atpvn")
+font_size = 32
+outline_size = 20
+outline_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+
+[node name="PastEvent" type="Node2D"]
+script = ExtResource("1_b1a5d")
+
+[node name="Box" type="NinePatchRect" parent="."]
+self_modulate = Color(0.627451, 0.627451, 0.627451, 1)
+offset_left = -383.0
+offset_top = -65.0
+offset_right = 384.0
+offset_bottom = 65.0
+texture = ExtResource("3_l0p3o")
+patch_margin_left = 14
+patch_margin_top = 16
+patch_margin_right = 11
+patch_margin_bottom = 14
+
+[node name="Icon" type="TextureRect" parent="Box"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 14.0
+offset_right = 121.0
+offset_bottom = 122.0
+texture = ExtResource("2_86n8w")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="Box"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 12.0
+offset_right = 517.0
+offset_bottom = 79.0
+text = "Atlantis"
+label_settings = SubResource("LabelSettings_xx22v")
+vertical_alignment = 1
+
+[node name="Dates" type="Label" parent="Box"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 81.0
+offset_right = 527.0
+offset_bottom = 120.0
+text = "2023-12-12 to 2023-12-12"
+label_settings = SubResource("LabelSettings_08fc2")
+vertical_alignment = 1
+
+[node name="Archived" type="Button" parent="Box"]
+self_modulate = Color(1, 0.301961, 0.235294, 1)
+offset_left = 590.0
+offset_top = 30.0
+offset_right = 730.0
+offset_bottom = 95.0
+theme = SubResource("Theme_7r5k5")
+
+[node name="Text" type="Label" parent="Box/Archived"]
+offset_left = -1.0
+offset_right = 141.0
+offset_bottom = 65.0
+text = "Archived"
+label_settings = SubResource("LabelSettings_imlkv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ViewEvent" type="Button" parent="Box"]
+self_modulate = Color(0, 1.2, 0, 1)
+layout_mode = 0
+offset_left = 590.0
+offset_top = 30.0
+offset_right = 730.0
+offset_bottom = 95.0
+theme = SubResource("Theme_7r5k5")
+
+[node name="Text" type="Label" parent="Box/ViewEvent"]
+offset_left = -1.0
+offset_right = 141.0
+offset_bottom = 65.0
+text = "View"
+label_settings = SubResource("LabelSettings_imlkv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Box/ViewEvent" to="." method="_on_view_event_pressed"]

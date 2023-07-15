@@ -3,7 +3,7 @@ extends Marker2D
 @onready var scrollSpeed = 50
 @onready var maxScroll = 0
 @onready var mouseDragging = false
-@onready var scrollMinimum = 1.7
+@onready var scrollMinimum = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

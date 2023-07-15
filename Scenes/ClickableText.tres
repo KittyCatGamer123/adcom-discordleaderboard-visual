@@ -1,0 +1,38 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://d1xox3xni51e2"]
+
+[ext_resource type="FontFile" uid="uid://cq1o5bhchfhll" path="res://Assets/Fonts/GainsboroughSans-Regular.otf" id="1_nijg8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mt2p3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3vw66"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_antnq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vrwy7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vxq1f"]
+
+[resource]
+default_font = ExtResource("1_nijg8")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.172549, 0.172549, 0.172549, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 0, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.788235, 0.788235, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/h_separation = 0
+Button/constants/outline_size = 25
+Button/font_sizes/font_size = 64
+Button/fonts/font = ExtResource("1_nijg8")
+Button/styles/disabled = SubResource("StyleBoxEmpty_mt2p3")
+Button/styles/focus = SubResource("StyleBoxEmpty_3vw66")
+Button/styles/hover = SubResource("StyleBoxEmpty_antnq")
+Button/styles/normal = SubResource("StyleBoxEmpty_vrwy7")
+Button/styles/pressed = SubResource("StyleBoxEmpty_vxq1f")

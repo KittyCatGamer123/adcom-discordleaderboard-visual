@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://de4u1yqndiib1"]
+[gd_scene load_steps=46 format=3 uid="uid://de4u1yqndiib1"]
 
 [ext_resource type="Texture2D" uid="uid://dxb8y67hpgech" path="res://Assets/UI/tint-bg-metal.png" id="1"]
 [ext_resource type="SpriteFrames" uid="uid://crn85wcfux06a" path="res://Assets/UI/SpinningSta.tres" id="2"]
@@ -19,7 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://ck2k4b7erej7s" path="res://Assets/UI/btn-bubble.png" id="12_rhgd8"]
 [ext_resource type="Script" path="res://Scripts/DisboardButton.gd" id="13_wxxg3"]
 [ext_resource type="Script" path="res://Scripts/NewsModalContainer.gd" id="14_n2nd8"]
+[ext_resource type="Texture2D" uid="uid://brievi550fsk4" path="res://Assets/UI/icon-leaderboard-milestone.png" id="14_uokrq"]
 [ext_resource type="Texture2D" uid="uid://d0wpkhiv4po2p" path="res://Assets/UI/tint-cnt-modal-wood.png" id="14_vmkil"]
+[ext_resource type="Texture2D" uid="uid://0pd3opwqhc3j" path="res://Assets/UI/icon-leaderboard-milestone-hover.png" id="15_7a26s"]
 [ext_resource type="Texture2D" uid="uid://x6pjevguv2gw" path="res://Assets/UI/cnt-metal-rounded.png" id="15_lv8m2"]
 [ext_resource type="Texture2D" uid="uid://bhba6h84y7hfh" path="res://Assets/UI/tint-cnt-modal-top.png" id="16_klmwu"]
 [ext_resource type="Texture2D" uid="uid://dsujd3op15cjo" path="res://Assets/UI/tint-cnt-bolted-bar.png" id="17_j1pf5"]
@@ -109,6 +111,10 @@ font = ExtResource("3")
 font_size = 63
 outline_size = 27
 outline_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wg74r"]
+font = ExtResource("11_7qbv2")
+font_size = 51
 
 [sub_resource type="Theme" id="Theme_t20tp"]
 default_font = ExtResource("11_7qbv2")
@@ -341,6 +347,45 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
+[node name="HistoryButton" type="TextureButton" parent="overlay"]
+offset_left = -446.0
+offset_top = -266.0
+offset_right = -358.0
+offset_bottom = -157.0
+texture_normal = ExtResource("14_uokrq")
+texture_pressed = ExtResource("15_7a26s")
+texture_hover = ExtResource("15_7a26s")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("10_fnwwd")
+
+[node name="Describe" type="ColorRect" parent="overlay/HistoryButton"]
+layout_mode = 0
+offset_left = -61.0
+offset_top = 82.0
+offset_right = 164.0
+offset_bottom = 126.0
+color = Color(0, 0, 0, 0.705882)
+
+[node name="Label" type="Label" parent="overlay/HistoryButton/Describe"]
+layout_mode = 0
+offset_top = 1.33337
+offset_right = 221.0
+offset_bottom = 47.3334
+text = "View History"
+label_settings = SubResource("LabelSettings_o4le1")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="EventTimestamp" type="Label" parent="overlay"]
+offset_left = -529.0
+offset_top = -1191.0
+offset_right = -8.0
+offset_bottom = -1125.0
+text = "2020-12-12 to 2020-12-12"
+label_settings = SubResource("LabelSettings_wg74r")
+
 [node name="popupPosition" type="Marker2D" parent="."]
 position = Vector2(0, -3)
 
@@ -349,6 +394,8 @@ position = Vector2(0, -3)
 [node name="httpGetEvent" type="HTTPRequest" parent="."]
 
 [node name="httpGetTop100" type="HTTPRequest" parent="."]
+
+[node name="httpGetHistory" type="HTTPRequest" parent="."]
 
 [node name="HelpButton" type="TextureButton" parent="."]
 offset_left = 650.0
@@ -566,9 +613,13 @@ scroll_active = false
 [connection signal="mouse_entered" from="overlay/DisboardButton" to="overlay/DisboardButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="overlay/DisboardButton" to="overlay/DisboardButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="overlay/DisboardButton" to="." method="_on_disboard_button_pressed"]
+[connection signal="mouse_entered" from="overlay/HistoryButton" to="overlay/HistoryButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="overlay/HistoryButton" to="overlay/HistoryButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="overlay/HistoryButton" to="." method="_on_history_button_pressed"]
 [connection signal="request_completed" from="httpGetPlayfab" to="." method="_on_httpGetPlayfab_request_completed"]
 [connection signal="request_completed" from="httpGetEvent" to="." method="_on_httpGetEvent_request_completed"]
 [connection signal="request_completed" from="httpGetTop100" to="." method="_on_http_get_top_100_request_completed"]
+[connection signal="request_completed" from="httpGetHistory" to="." method="_on_http_get_history_request_completed"]
 [connection signal="toggled" from="HelpButton" to="HelpButton" method="_on_toggled"]
 [connection signal="pressed" from="NewsModalContainer/WoodPanel/BoltedBar/SelectOlder" to="NewsModalContainer" method="_on_select_older_pressed"]
 [connection signal="pressed" from="NewsModalContainer/WoodPanel/BoltedBar/SelectNewer" to="NewsModalContainer" method="_on_select_newer_pressed"]
