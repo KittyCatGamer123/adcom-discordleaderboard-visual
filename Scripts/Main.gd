@@ -278,6 +278,7 @@ func _on_http_get_history_request_completed(result, response_code, headers, body
 		"ninja": "Ninja Union",
 		"potatofactory": "Potato Factory",
 		"power": "Power Underwhelming",
+		"santa": "Supreme Santa",
 		"space": "Space Force",
 		"stone": "Stone State",
 		"winter": "Winter Motherland",
